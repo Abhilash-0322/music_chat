@@ -36,6 +36,11 @@ app.use("/api/songs",songRoutes);
 app.use("/api/albums",albumRoutes);
 app.use("/api/stats",statRoutes);
 
+app.use((err,req,res,next) => {
+    // res.status(404).json({message:"Route not found"});
+    res.status(500).json({message:process.env.NODE_ENV === 'production' ? "Internal server error" : err.message}); 
+    // next();
+});
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
@@ -47,3 +52,5 @@ app.listen(PORT, () => {
     connectDB();
     }
 );
+
+//TODO: Socket IO Implementation
