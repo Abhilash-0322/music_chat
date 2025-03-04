@@ -10,4 +10,8 @@ router.get('/', (req, res) => {
 
 router.post('/callback',authCallback);
 
+router.get('/callback',(req,res) => {
+    res.send('Callback route');
+});
+
 export default router;

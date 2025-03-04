@@ -7,14 +7,23 @@ import songRoutes from './routes/song.route.js';
 import albumRoutes from './routes/album.route.js';
 import statRoutes from './routes/stats.route.js';
 import { connectDB } from './lib/db.js';
-import { clerkMiddleware } from '@clerk/express'
+import { clerkMiddleware } from '@clerk/express';
 import fileUpload from 'express-fileupload';
 import path from 'path';
+import cors from 'cors';
 
 dotenv.config();
 
 const __dirname = path.resolve();
 const app = express();
+
+
+app.use(cors(
+    {
+        origin:"http://localhost:3000",
+        credentials:true,
+    }
+));
 
 app.use(clerkMiddleware())  //This will add auth and user to the request object
 app.use(fileUpload({
