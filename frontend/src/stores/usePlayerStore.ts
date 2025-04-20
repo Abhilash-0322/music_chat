@@ -72,7 +72,7 @@ export const usePlayerStore = create<PlayerStore>((set, get) => ({
 	togglePlay: () => {
 		const willStartPlaying = !get().isPlaying;
 
-		// const currentSong = get().currentSong;
+		const currentSong = get().currentSong;
 		// const socket = useChatStore.getState().socket;
 		// if (socket.auth) {
 		// 	socket.emit("update_activity", {
