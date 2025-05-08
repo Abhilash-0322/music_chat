@@ -7,6 +7,7 @@ import songRoutes from './routes/song.route.js';
 import albumRoutes from './routes/album.route.js';
 import statRoutes from './routes/stats.route.js';
 import { connectDB } from './lib/db.js';
+import { initializeSocket } from "./lib/socket.js";
 import { clerkMiddleware } from '@clerk/express';
 import fileUpload from 'express-fileupload';
 import path from 'path';
