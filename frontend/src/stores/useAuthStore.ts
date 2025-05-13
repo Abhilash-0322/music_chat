@@ -11,7 +11,7 @@ interface AuthStore {
 }
 
 export const useAuthStore = create<AuthStore>((set) => ({
-	isAdmin: false,
+	isAdmin: true,
 	isLoading: false,
 	error: null,
 
@@ -28,6 +28,6 @@ export const useAuthStore = create<AuthStore>((set) => ({
 	},
 
 	reset: () => {
-		set({ isAdmin: false, isLoading: false, error: null });
+		set({ isAdmin: true, isLoading: false, error: null });
 	},
 }));

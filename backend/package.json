@@ -19,6 +19,7 @@
     "dotenv": "^16.4.7",
     "express-fileupload": "^1.5.1",
     "mongoose": "^8.10.1",
+    "node-cron": "^4.0.4",
     "socket.io": "^4.8.1"
   },
   "devDependencies": {

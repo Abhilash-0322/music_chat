@@ -53,16 +53,16 @@ const Topbar = () => {
     '
 		>
 			<div className='flex gap-2 items-center'>
-				<img src='./spotify.png' className='size-8' alt='Spotify logo' />
+				<img src='/spotify.png' className='size-8' alt='Spotify logo' />
 				Spotify
 			</div>
 			<div className='flex items-center gap-4'>
-				{isAdmin && (
+				{ isAdmin?(
 					<Link to={"/admin"} className={cn(buttonVariants({ variant: "outline" }))}>
 						<LayoutDashboardIcon className='size-4  mr-2' />
 						Admin Dashboard
 					</Link>
-				)}
+				):<span>Menu</span>}
 
 				<SignedOut>
 					<SignInOAuthButtons />
@@ -73,5 +73,4 @@ const Topbar = () => {
 		</div>
 	);
 };
-
 export default Topbar;
