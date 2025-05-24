@@ -63,6 +63,9 @@ cron.schedule("0 * * * *", () => {
 	}
 });
 
+app.use("/",(req,res)=>{
+	res.send({"Message":"Welcome To Spotify"})
+})
 app.use("/api/users", userRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/auth", authRoutes);
