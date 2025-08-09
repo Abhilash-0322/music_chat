@@ -9,7 +9,7 @@ export const getAllAlbums = async (req, res, next) => {
         console.log("Error in getting Albums", error);
         next(error);
     }
-};
+};  
 
 export const getAlbumById = async (req, res, next) => {
     try {
