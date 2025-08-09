@@ -4,7 +4,7 @@ import { Message } from "../models/message.model.js";
 export const getAllUsers = async (req, res, next) => {
     try{
         const currntUserId=req.auth.userId;
-        // console.log(currntUser);
+        console.log(currntUserId);
         const users = await User.find({clerkId:{$ne:currntUserId}});
         res.status(200).json(users);
     }

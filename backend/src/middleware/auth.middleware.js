@@ -11,7 +11,7 @@ export const protectedRoute = async(req,res,next) => {
 export const requireAdmin=async(req,res,next)=>{
     try{
         // const currntUser = await clerkClient.getUser(req.auth.userId);
-        // console.log(currntUser.PrimaryEmailAddress?.emailAddress);
+        console.log(currntUser.PrimaryEmailAddress?.emailAddress);
         // const isAdmin = process.env.ADMIN_EMAIL===currntUser.PrimaryEmailAddress?.emailAddress;
         const isAdmin=true;
         if(!isAdmin){

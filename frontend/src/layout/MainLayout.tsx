@@ -60,7 +60,7 @@ const MainLayout = () => {
 				<AudioPlayer />
 				{/* left sidebar */}
 				<ResizablePanel defaultSize={20} minSize={isMobile ? 0 : 10} maxSize={30}>
-					<LeftSidebar />
+					{/* <LeftSidebar /> */}
 				</ResizablePanel>
 
 				<ResizableHandle className='w-2 bg-black rounded-lg transition-colors' />

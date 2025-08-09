@@ -9,7 +9,6 @@ import { createServer } from "http";
 import cron from "node-cron";
 
 import { initializeSocket } from "./lib/socket.js";
-
 import { connectDB } from "./lib/db.js";
 import userRoutes from "./routes/user.route.js";
 import adminRoutes from "./routes/admin.route.js";
@@ -63,9 +62,10 @@ cron.schedule("0 * * * *", () => {
 	}
 });
 
-app.use("/",(req,res)=>{
-	res.send({"Message":"Welcome To Spotify"})
-})
+// app.use("/",(req,res)=>{
+// 	res.send({"Message":"Welcome To Spotify"})
+// })
+
 app.use("/api/users", userRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/auth", authRoutes);
