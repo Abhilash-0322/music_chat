@@ -7,13 +7,12 @@ interface ChatStore {
 	users: User[];
 	isLoading: boolean;
 	error: string | null;
-	socket: any; // Using any for now since we need to access custom properties
+	socket: any;
 	isConnected: boolean;
 	onlineUsers: Set<string>;
 	userActivities: Map<string, string>;
 	messages: Message[];
 	selectedUser: User | null;
-	currentUserId: string | null;
 
 	fetchUsers: () => Promise<void>;
 	initSocket: (userId: string) => void;
@@ -23,15 +22,12 @@ interface ChatStore {
 	setSelectedUser: (user: User | null) => void;
 }
 
-// Determine the base URL based on the environment
-const baseURL = import.meta.env.MODE === "development" 
-    ? "http://localhost:5000" 
-    : window.location.origin; // In production, use the origin which will be handled by Vercel routing
+const baseURL = import.meta.env.MODE === "development" ? "http://localhost:5000" : "/";
+// const baseURL = "http://localhost:5000";
 
 const socket = io(baseURL, {
 	autoConnect: false, // only connect if user is authenticated
 	withCredentials: true,
-	path: '/socket.io/',
 });
 
 export const useChatStore = create<ChatStore>((set, get) => ({
@@ -44,7 +40,6 @@ export const useChatStore = create<ChatStore>((set, get) => ({
 	userActivities: new Map(),
 	messages: [],
 	selectedUser: null,
-	currentUserId: null,
 
 	setSelectedUser: (user) => set({ selectedUser: user }),
 
