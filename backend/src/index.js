@@ -28,7 +28,9 @@ initializeSocket(httpServer);
 
 app.use(
 	cors({
-		origin: "*",
+		origin: process.env.NODE_ENV === "production" 
+			? ["https://music-chat-app.vercel.app", "https://your-app-name.vercel.app"]
+			: "http://localhost:3000",
 		credentials: true,
 	})
 );
