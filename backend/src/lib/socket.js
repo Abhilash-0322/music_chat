@@ -4,9 +4,7 @@ import { Message } from "../models/message.model.js";
 export const initializeSocket = (server) => {
 	const io = new Server(server, {
 		cors: {
-			origin: process.env.NODE_ENV === "production" 
-				? ["https://music-chat-app.vercel.app", "https://your-app-name.vercel.app"] // Update with your actual Vercel domain
-				: "http://localhost:3000",
+			origin: "http://localhost:3000",
 			credentials: true,
 		},
 	});
